@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leadminnow</title>
+    <link rel="icon" href="Images/Main_logo.png" type="image/png" />
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#4f46e5", secondary: "#10b981" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+      font-family: 'Inter', sans-serif;
+      }
+      .hero-section {
+      background-color: white;
+      background-image: url('Images/Website.png');
+      background-size: cover;
+      background-position: center;
+      }
+      .process-item::before {
+      content: '';
+      position: absolute;
+      top: 2.5rem;
+      left: 1.5rem;
+      width: 1px;
+      height: calc(100% - 2.5rem);
+      background-color: #e5e7eb;
+      z-index: -1;
+      }
+      .process-item:last-child::before {
+      display: none;
+      }
+      .cta-section {
+      background-image: url('https://readdy.ai/api/search-image?query=subtle%20abstract%20pattern%20with%20light%20blue%20and%20purple%20gradient%2C%20professional%20tech%20background%20with%20flowing%20lines%2C%20minimalist%20design%2C%20perfect%20for%20call%20to%20action%20section%2C%20very%20light%20and%20airy%20feeling%2C%20not%20distracting%20from%20text&width=1920&height=400&seq=12346&orientation=landscape');
+      background-size: cover;
+      background-position: center;
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+      }
+      .custom-checkbox {
+      position: relative;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #d1d5db;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      }
+      .custom-checkbox.checked {
+      background-color: #4f46e5;
+      border-color: #4f46e5;
+      }
+      .custom-checkbox.checked::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 6px;
+      width: 6px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      }
+      .custom-switch {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 24px;
+      }
+      .custom-switch-track {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #e5e7eb;
+      border-radius: 24px;
+      transition: 0.4s;
+      }
+      .custom-switch-thumb {
+      position: absolute;
+      height: 20px;
+      width: 20px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      border-radius: 50%;
+      transition: 0.4s;
+      }
+      .custom-switch.active .custom-switch-track {
+      background-color: #4f46e5;
+      }
+      .custom-switch.active .custom-switch-thumb {
+      transform: translateX(24px);
+      }
+      .testimonial-slider {
+      transition: transform 0.5s ease;
+      }
+      .service-card:hover {
+      transform: translateY(-8px);
+      }
+      .portfolio-card:hover .portfolio-overlay {
+      opacity: 1;
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <!-- SECTION: Header/Navigation -->
+    <header class="w-full bg-white shadow-sm">
+      <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center">
+        <a href="Home.html" class="flex items-center space-x-2">
+          <img src="Images/Main_logo.png" alt="LM Logo" class="h-10 w-auto" />
+        </a>
+      </div>
+      <nav class="hidden md:flex items-center space-x-8">
+      <div class="relative group">
+      <button class="text-gray-700 hover:text-primary font-medium flex items-center">
+      Services
+      <span class="ml-1 w-5 h-5 flex items-center justify-center">
+      <i class="ri-arrow-down-s-line"></i>
+      </span>
+      </button>
+      <div class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+      <a href="AI-Chatbot.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">AI Chatbots</a>
+      <a href="Facebook.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Meta Ads</a>
+      <a href="ads_making.html" class="block px-4 py-2 text-sm text-primary font-medium hover:bg-gray-50">Animated Ads</a>
+      <a href="ads_making.html" class="block px-4 py-2 text-sm text-primary font-medium hover:bg-gray-50">UI/UX Design</a>
+      </div>
+      </div>
+      <a href="AboutUs.html" class="text-gray-700 hover:text-primary font-medium">About Us</a>
+      <a href="Contact_us.html" class="text-gray-700 hover:text-primary font-medium">Contact Us</a>
+        </nav>
+        <div class="flex items-center space-x-4">
+      <div class="relative">
+      <button class="flex items-center text-gray-700 hover:text-primary">
+      EN
+      <span class="ml-1 w-5 h-5 flex items-center justify-center">
+              <i class="ri-arrow-down-s-line"></i>
+      </span>
+      </button>
+      <div class="absolute right-0 mt-2 w-24 bg-white shadow-lg rounded hidden">
+      <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">EN</a>
+      <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">FR</a>
+      <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">DE</a>
+            </div>
+          </div>
+          <a
+      href="contact_us.html"
+            class="bg-primary text-white px-5 py-2 !rounded-button whitespace-nowrap font-medium hover:bg-primary/90 transition-colors"
+            >Get Started</a
+          >
+        </div>
+      </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero-section min-h-[700px] flex items-center pt-24 pb-16 relative bg-white">
+      <div class="container mx-auto px-4 relative">
+        <div class="w-full max-w-3xl">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white">
+            Transform Your Business with Professional Web Solutions
+          </h1>
+          <p class="text-lg md:text-xl mb-8 text-white max-w-2xl">
+            We craft stunning, high-performance websites that elevate your
+            brand, engage your audience, and drive business growth. Your vision,
+            our expertise.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+  href="contact_us"
+  class="bg-primary text-white px-6 py-3 font-medium !rounded-button whitespace-nowrap hover:bg-primary/90 transition inline-block"
+>
+  Start Your Project
+</a>
+<a
+  href="AboutUs.html" 
+  class="bg-gray-100 text-primary px-6 py-3 font-medium !rounded-button whitespace-nowrap hover:bg-gray-200 transition inline-block"
+>
+  Know more
+</a>
+          </div>
+          <div class="flex items-center mt-12 gap-6">
+            <div
+              class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full"
+            >
+              <i class="ri-html5-fill text-primary"></i>
+            </div>
+            <div
+              class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full"
+            >
+              <i class="ri-css3-fill text-primary"></i>
+            </div>
+            <div
+              class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full"
+            >
+              <i class="ri-javascript-fill text-primary"></i>
+            </div>
+            <div
+              class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full"
+            >
+              <i class="ri-database-2-fill text-primary"></i>
+            </div>
+            <div
+              class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full"
+            >
+              <i class="ri-nodejs-fill text-primary"></i>
+            </div>
+            <div
+              class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full"
+            >
+              <i class="ri-reactjs-fill text-primary"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Our Expert Services
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            We offer comprehensive web development solutions tailored to your
+            unique business needs.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            class="service-card bg-white p-8 rounded-lg shadow-md transition duration-300 ease-in-out"
+          >
+            <div
+              class="w-14 h-14 flex items-center justify-center bg-primary/10 rounded-lg mb-6"
+            >
+              <i class="ri-code-s-slash-line ri-xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">
+              Custom Website Development
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Bespoke websites designed to perfectly match your brand identity
+              and business goals.
+            </p>
+            
+          </div>
+          <div
+            class="service-card bg-white p-8 rounded-lg shadow-md transition duration-300 ease-in-out"
+          >
+            <div
+              class="w-14 h-14 flex items-center justify-center bg-primary/10 rounded-lg mb-6"
+            >
+              <i class="ri-shopping-cart-2-line ri-xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">E-commerce Solutions</h3>
+            <p class="text-gray-600 mb-4">
+              Powerful online stores with seamless checkout processes and
+              inventory management.
+            </p>
+           
+          </div>
+          <div
+            class="service-card bg-white p-8 rounded-lg shadow-md transition duration-300 ease-in-out"
+          >
+            <div
+              class="w-14 h-14 flex items-center justify-center bg-primary/10 rounded-lg mb-6"
+            >
+              <i class="ri-palette-line ri-xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">UI/UX Design</h3>
+            <p class="text-gray-600 mb-4">
+              Intuitive, user-centered designs that enhance user experience and
+              drive conversions.
+            </p>
+            
+          </div>
+          <div
+            class="service-card bg-white p-8 rounded-lg shadow-md transition duration-300 ease-in-out"
+          >
+            <div
+              class="w-14 h-14 flex items-center justify-center bg-primary/10 rounded-lg mb-6"
+            >
+              <i class="ri-line-chart-line ri-xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">SEO & Performance</h3>
+            <p class="text-gray-600 mb-4">
+              Optimization strategies to improve search rankings and website
+              speed.
+            </p>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Our Latest Projects
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Explore our recent work and see how we've helped businesses achieve
+            their digital goals.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="portfolio-card group relative rounded-lg overflow-hidden shadow-md"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=modern%20luxury%20fashion%20e-commerce%20website%20on%20laptop%20screen%2C%20professional%20web%20design%2C%20clean%20layout%20with%20product%20images%2C%20minimalist%20design%2C%20high-end%20fashion%20products%20displayed%20elegantly&width=600&height=450&seq=12347&orientation=landscape"
+              alt="Fashion E-commerce Website"
+              class="w-full h-64 object-cover object-top"
+            />
+            <div
+              class="portfolio-overlay absolute inset-0 bg-primary/80 flex flex-col justify-center items-center p-6 opacity-0 transition-opacity duration-300"
+            >
+              <h3 class="text-xl font-semibold text-white mb-2">
+                Luxe Fashion Boutique
+              </h3>
+              <p class="text-white/90 mb-4 text-center">
+                E-commerce / Fashion Industry
+              </p>
+              <button
+                class="bg-white text-primary px-4 py-2 rounded-full font-medium !rounded-button whitespace-nowrap"
+              >
+                View Project
+              </button>
+            </div>
+          </div>
+          <div
+            class="portfolio-card group relative rounded-lg overflow-hidden shadow-md"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=financial%20services%20corporate%20website%20on%20desktop%20screen%2C%20professional%20business%20web%20design%2C%20dashboard%20with%20charts%20and%20graphs%2C%20blue%20color%20scheme%2C%20clean%20corporate%20layout&width=600&height=450&seq=12348&orientation=landscape"
+              alt="Financial Services Website"
+              class="w-full h-64 object-cover object-top"
+            />
+            <div
+              class="portfolio-overlay absolute inset-0 bg-primary/80 flex flex-col justify-center items-center p-6 opacity-0 transition-opacity duration-300"
+            >
+              <h3 class="text-xl font-semibold text-white mb-2">
+                Global Financial Partners
+              </h3>
+              <p class="text-white/90 mb-4 text-center">
+                Corporate / Financial Services
+              </p>
+              <button
+                class="bg-white text-primary px-4 py-2 rounded-full font-medium !rounded-button whitespace-nowrap"
+              >
+                View Project
+              </button>
+            </div>
+          </div>
+          <div
+            class="portfolio-card group relative rounded-lg overflow-hidden shadow-md"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=restaurant%20food%20ordering%20website%20on%20tablet%2C%20culinary%20web%20design%2C%20menu%20layout%20with%20food%20photography%2C%20reservation%20system%2C%20elegant%20restaurant%20website%20design&width=600&height=450&seq=12349&orientation=landscape"
+              alt="Restaurant Website"
+              class="w-full h-64 object-cover object-top"
+            />
+            <div
+              class="portfolio-overlay absolute inset-0 bg-primary/80 flex flex-col justify-center items-center p-6 opacity-0 transition-opacity duration-300"
+            >
+              <h3 class="text-xl font-semibold text-white mb-2">
+                Savory Bistro
+              </h3>
+              <p class="text-white/90 mb-4 text-center">
+                Food & Beverage / Restaurant
+              </p>
+              <button
+                class="bg-white text-primary px-4 py-2 rounded-full font-medium !rounded-button whitespace-nowrap"
+              >
+                View Project
+              </button>
+            </div>
+          </div>
+          <div
+            class="portfolio-card group relative rounded-lg overflow-hidden shadow-md"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=real%20estate%20property%20listing%20website%20on%20laptop%2C%20property%20search%20interface%2C%20map%20integration%2C%20modern%20real%20estate%20web%20design%2C%20professional%20property%20photography&width=600&height=450&seq=12350&orientation=landscape"
+              alt="Real Estate Website"
+              class="w-full h-64 object-cover object-top"
+            />
+            <div
+              class="portfolio-overlay absolute inset-0 bg-primary/80 flex flex-col justify-center items-center p-6 opacity-0 transition-opacity duration-300"
+            >
+              <h3 class="text-xl font-semibold text-white mb-2">
+                Premier Properties
+              </h3>
+              <p class="text-white/90 mb-4 text-center">
+                Real Estate / Property Listings
+              </p>
+              <button
+                class="bg-white text-primary px-4 py-2 rounded-full font-medium !rounded-button whitespace-nowrap"
+              >
+                View Project
+              </button>
+            </div>
+          </div>
+          <div
+            class="portfolio-card group relative rounded-lg overflow-hidden shadow-md"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=fitness%20and%20wellness%20app%20interface%20on%20mobile%20phone%2C%20workout%20tracking%2C%20nutrition%20planning%2C%20modern%20fitness%20web%20application%20design%2C%20health%20tech%20interface&width=600&height=450&seq=12351&orientation=landscape"
+              alt="Fitness App"
+              class="w-full h-64 object-cover object-top"
+            />
+            <div
+              class="portfolio-overlay absolute inset-0 bg-primary/80 flex flex-col justify-center items-center p-6 opacity-0 transition-opacity duration-300"
+            >
+              <h3 class="text-xl font-semibold text-white mb-2">FitLife Pro</h3>
+              <p class="text-white/90 mb-4 text-center">
+                Health & Fitness / Mobile App
+              </p>
+              <button
+                class="bg-white text-primary px-4 py-2 rounded-full font-medium !rounded-button whitespace-nowrap"
+              >
+                View Project
+              </button>
+            </div>
+          </div>
+          <div
+            class="portfolio-card group relative rounded-lg overflow-hidden shadow-md"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=educational%20online%20course%20platform%20on%20laptop%20and%20tablet%2C%20e-learning%20interface%2C%20video%20lessons%2C%20student%20dashboard%2C%20modern%20educational%20website%20design&width=600&height=450&seq=12352&orientation=landscape"
+              alt="E-Learning Platform"
+              class="w-full h-64 object-cover object-top"
+            />
+            <div
+              class="portfolio-overlay absolute inset-0 bg-primary/80 flex flex-col justify-center items-center p-6 opacity-0 transition-opacity duration-300"
+            >
+              <h3 class="text-xl font-semibold text-white mb-2">
+                EduMaster Learning
+              </h3>
+              <p class="text-white/90 mb-4 text-center">
+                Education / E-Learning Platform
+              </p>
+              <button
+                class="bg-white text-primary px-4 py-2 rounded-full font-medium !rounded-button whitespace-nowrap"
+              >
+                View Project
+              </button>
+            </div>
+          </div>
+        </div>
+       
+      </div>
+    </section>
+    <!-- Process Section -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Our Development Process
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            We follow a proven methodology to deliver exceptional results for
+            every project.
+          </p>
+        </div>
+        <div class="max-w-4xl mx-auto">
+          <div class="relative">
+            <div class="process-item relative pl-16 pb-12">
+              <div
+                class="absolute left-0 top-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold"
+              >
+                1
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Discovery & Planning</h3>
+              <p class="text-gray-600">
+                We begin by understanding your business goals, target audience,
+                and project requirements. Our team conducts thorough research
+                and creates a detailed project roadmap.
+              </p>
+            </div>
+            <div class="process-item relative pl-16 pb-12">
+              <div
+                class="absolute left-0 top-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold"
+              >
+                2
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Design & Prototyping</h3>
+              <p class="text-gray-600">
+                Our designers create wireframes and visual concepts for your
+                approval. We focus on user experience, brand consistency, and
+                conversion-optimized layouts.
+              </p>
+            </div>
+            <div class="process-item relative pl-16 pb-12">
+              <div
+                class="absolute left-0 top-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold"
+              >
+                3
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Development & Testing</h3>
+              <p class="text-gray-600">
+                Our development team brings the designs to life with clean,
+                efficient code. We conduct rigorous testing across devices and
+                browsers to ensure flawless functionality.
+              </p>
+            </div>
+            <div class="process-item relative pl-16 pb-12">
+              <div
+                class="absolute left-0 top-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold"
+              >
+                4
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Launch & Support</h3>
+              <p class="text-gray-600">
+                After final approval, we deploy your website and provide
+                comprehensive training. Our ongoing support ensures your site
+                continues to perform optimally.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            What Our Clients Say
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Don't just take our word for it. Here's what our clients have to say
+            about working with us.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Testimonial 1 -->
+          <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <div class="flex items-center mb-6">
+              <p class="text-primary mr-2">Meta Ads _</p>
+              <div class="text-primary">
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                </div>
+            </div>
+            <p class="text-gray-600 mb-6">
+              "Leadminnow helped us generate high-quality leads and increase sales faster than we expected.
+              The entire process was seamless—he handled everything from ad strategy to optimization, making it incredibly easy to work with him.
+              He took the time to understand our business, provided clear communication, and delivered real, trackable results."
+                </p>
+                <div class="flex items-center">
+                  <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                <img src="Images/PPl/TestMonial/T1.png" alt="Yogesh Byas" class="w-full h-full object-cover object-top" />
+                  </div>
+                  <div>
+                <h4 class="text-gray-900 font-bold">Yogesh Byas</h4>
+                <p class="text-gray-500 text-sm">Founder of Microbiq labs pvt ltd</p>
+                  </div>
+                </div>
+              </div>
+          <!-- Testimonial 2 -->
+          <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <div class="flex items-center mb-6">
+              <p class="text-primary mr-2">Graphic Design _</p>
+              <div class="text-primary">
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                </div>
+            </div>
+            <p class="text-gray-600 mb-6">
+              "Leadminnow completely transformed our brand image with their stunning graphic design work.
+              Since launching the new visuals for Lasena Water, our product sales have increased by 5x! Their creativity and professionalism made a huge impact on our business."
+                </p>
+                <div class="flex items-center">
+                  <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                <img src="Images/PPl/TestMonial/T2.png" alt="Sallih Musa-Elakama" class="w-full h-full object-cover object-top" />
+                  </div>
+                  <div>
+                <h4 class="text-gray-900 font-bold">Sallih Musa-Elakama</h4>
+                <p class="text-gray-500 text-sm">Lasena Water Team</p>
+                  </div>
+                </div>
+              </div>
+          <!-- Testimonial 3 -->
+          <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <div class="flex items-center mb-6">
+              <p class="text-primary mr-2">AI ChatBot _</p>
+              <div class="text-primary">
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                </div>
+            </div>
+            <p class="text-gray-600 mb-6">
+              "Working with Leadminnow on our ANAY ChatBot has been a game-changer. Their data-driven chatbot helped us secure most of the clients we previously couldn't reach."<br>
+              "The chatbot is not only efficient but also provides a personalized experience that enhances customer satisfaction."
+                </p>
+                <div class="flex items-center">
+                  <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                <img src="Images/PPl/TestMonial/T3.jpg" alt="Michael Thompson" class="w-full h-full object-cover object-top" />
+                  </div>
+                  <div>
+                <h4 class="text-gray-900 font-bold">Michael Thompson</h4>
+                <p class="text-gray-500 text-sm">Founder of SkillValley</p>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section py-20 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+          Ready to Transform Your Online Presence?
+        </h2>
+        <p class="text-xl mb-8 max-w-2xl mx-auto">
+          Let's create a website that drives results for your business. Our team
+          is ready to bring your vision to life.
+        </p>
+        <a
+          href="Contact_us.html"
+          class="bg-white text-primary px-8 py-4 font-semibold text-lg !rounded-button whitespace-nowrap hover:bg-gray-100 transition"
+        >
+          Start Your Project Today
+        </a>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+          <div class="lg:col-span-2">
+            <div class="flex items-center">
+              <a href="Home.html" class="flex items-center space-x-2">
+                <img src="Images/Main_logo.png" alt="LM Logo" class="h-10 w-auto" />
+              </a>
+            </div>
+            <p class="text-gray-400 mb-6 max-w-md">
+            </br>
+              Empowering businesses with innovative digital solutions to drive
+              growth, enhance customer engagement, and maximize ROI in today's
+              competitive marketplace.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                title="Facebook"
+                class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors"
+              >
+                <i class="ri-facebook-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors"
+              >
+                <i class="ri-twitter-x-fill"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/aadiverma/"
+                class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors"
+              >
+              <i class="ri-linkedin-fill"></i>
+              <a
+                href="https://www.linkedin.com/company/leadminnow/about"
+                class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors"
+              >
+                <i class="ri-linkedin-fill"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/leadminnow/"
+                class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors"
+              >
+                <i class="ri-instagram-fill"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Services</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="Facebook.html"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Digital Marketing</a
+                >
+              </li>
+              <li>
+                <a
+                  href="Facebook.html"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Meta Ads</a
+                >
+              </li>
+              <li>
+                <a
+                  href="ads_making.html"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Animated Ads</a
+                >
+              </li>
+              <li>
+                <a
+                  href="AI-Chatbot.html"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >AI Chatbots</a
+                >
+              </li>
+              <li>
+                <a
+                  href="ads_making.html"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >UI/UX Design</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Company</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="AboutUs.html"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Case Studies</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Testimonials</a
+              
+              <li>
+                <a
+                  href="Contact_us.html"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Store Information</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex items-center justify-center text-gray-400 mr-2 mt-0.5"
+                >
+                  <i class="ri-map-pin-line"></i>
+                </div>
+                <span class="text-gray-400"
+                  >RH-78,Satyamitra Rajlaxmi nature, Rau cat road Indore, India</span
+                >
+              </li>
+              <li class="flex items-center">
+                <div
+                  class="w-5 h-5 flex items-center justify-center text-gray-400 mr-2"
+                >
+                  <i class="ri-phone-line"></i>
+                </div>
+                <span class="text-gray-400">+91 8085247210</span>
+              </li>
+              <li class="flex items-center">
+                <div
+                  class="w-5 h-5 flex items-center justify-center text-gray-400 mr-2"
+                >
+                  <i class="ri-mail-line"></i>
+                </div>
+                <span class="text-gray-400">aaditya@leadminnow.com</span>
+              </li>
+              <li class="flex items-center">
+                <div
+                  class="w-5 h-5 flex items-center justify-center text-gray-400 mr-2"
+                >
+                  <i class="ri-time-line"></i>
+                </div>
+                <span class="text-gray-400"
+                  >Mon-Fri: 8AM-9PM, Sat: 10AM-4PM</span
+                >
+              </li>
+            </ul>
+            <div class="mt-6">
+            <h3 class="text-lg font-semibold mb-4">Submit Query</h3>
+              <a
+                href="Contact_us.html#contact-form"
+                class="bg-primary text-white px-6 py-2 rounded font-medium hover:bg-primary/90 transition-colors block text-center"
+              >
+                Send a Query
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-500 text-sm mb-4 md:mb-0">
+            © 2025 LeadMinnow. All rights reserved.
+            </p>
+          <div class="flex flex-wrap justify-center gap-4">
+              <a
+                href="#"
+              class="text-gray-500 text-sm hover:text-white transition-colors"
+                >Privacy Policy</a
+              >
+              <a
+                href="#"
+              class="text-gray-500 text-sm hover:text-white transition-colors"
+                >Terms of Service</a
+              >
+              <a
+                href="#"
+              class="text-gray-500 text-sm hover:text-white transition-colors"
+                >Cookie Policy</a
+              >
+            </div>
+          <div class="flex items-center mt-4 md:mt-0">
+            <span class="text-gray-500 text-sm mr-4">Payment Methods:</span>
+            <div class="flex space-x-3">
+              <div
+                class="w-8 h-8 flex items-center justify-center text-gray-400"
+      >
+                <i class="ri-visa-fill ri-lg"></i>
+    </div>
+              <div
+                class="w-8 h-8 flex items-center justify-center text-gray-400"
+      >
+                <i class="ri-mastercard-fill ri-lg"></i>
+      </div>
+    <div
+                class="w-8 h-8 flex items-center justify-center text-gray-400"
+              >
+                <i class="ri-paypal-fill ri-lg"></i>
+      </div>
+          <div
+                class="w-8 h-8 flex items-center justify-center text-gray-400"
+          >
+                <i class="ri-apple-fill ri-lg"></i>
+          </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button -->
+    <div class="fixed bottom-6 right-24 z-50 hidden" id="scroll-top-button">
+          <button
+        class="bg-white text-gray-700 w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-gray-100 transition border border-gray-200"
+        title="Scroll to top"
+          >
+        <i class="ri-arrow-up-line ri-lg"></i>
+          </button>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        mobileMenuButton.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+        });
+        
+        // Testimonial Slider
+        const testimonialSlider = document.getElementById("testimonial-slider");
+        const testimonialDots = document.querySelectorAll(".testimonial-dot");
+        const prevButton = document.getElementById("prev-testimonial");
+        const nextButton = document.getElementById("next-testimonial");
+        let currentSlide = 0;
+        function updateSlider() {
+          testimonialSlider.style.transform = `translateX(-${currentSlide * 100}%)`;
+          testimonialDots.forEach((dot, index) => {
+            if (index === currentSlide) {
+              dot.classList.add("bg-primary");
+              dot.classList.remove("bg-gray-300");
+            } else {
+              dot.classList.add("bg-gray-300");
+              dot.classList.remove("bg-primary");
+            }
+          });
+        }
+        testimonialDots.forEach((dot, index) => {
+          dot.addEventListener("click", () => {
+            currentSlide = index;
+            updateSlider();
+          });
+        });
+        prevButton.addEventListener("click", () => {
+          currentSlide =
+            (currentSlide - 1 + testimonialDots.length) % testimonialDots.length;
+          updateSlider();
+        });
+        nextButton.addEventListener("click", () => {
+          currentSlide = (currentSlide + 1) % testimonialDots.length;
+          updateSlider();
+        });
+        // Initialize slider
+        updateSlider();
+        // Auto slide every 5 seconds
+        setInterval(() => {
+          currentSlide = (currentSlide + 1) % testimonialDots.length;
+          updateSlider();
+        }, 5000);
+        // Scroll to Top Button
+        const scrollTopButton = document.getElementById("scroll-top-button");
+        window.addEventListener("scroll", () => {
+          if (window.pageYOffset > 300) {
+            scrollTopButton.classList.remove("hidden");
+          } else {
+            scrollTopButton.classList.add("hidden");
+          }
+        });
+        scrollTopButton.addEventListener("click", () => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
